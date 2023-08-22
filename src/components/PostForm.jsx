@@ -7,7 +7,7 @@ function PostForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch("https://jsonplaceholder.typicode.com/posts", {
+    fetch("https://github.com/muzamilmemon0/calling-backend-services", {
       method: "POST",
       body: JSON.stringify({ title: title, body: body, userId: 1 }),
       headers: {
