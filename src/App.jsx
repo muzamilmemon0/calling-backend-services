@@ -1,11 +1,17 @@
-import PostForm from "./components/PostForm";
+import Berries from "./components/Berries";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Posts from "./components/Posts";
 
 function App() {
   return (
     <>
-      <Posts />
-      <PostForm />
+      <Router>
+        <Routes>
+          {/* <Route exact path="/" element={<Berries />}></Route> */}
+
+          <Route exact path="/" element={<Posts />}></Route>
+        </Routes>
+      </Router>
     </>
   );
 }
