@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Navbar from "./Navbar";
 
 function PostForm() {
   const [title, setTitle] = useState("");
@@ -35,41 +36,44 @@ function PostForm() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8">
-      <h2 className="text-xl font-semibold mb-4">Create a New Post</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="title" className="block font-medium">
-            Title
-          </label>
-          <input
-            type="text"
-            id="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="w-full border rounded-md p-2"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="body" className="block font-medium">
-            Body
-          </label>
-          <textarea
-            id="body"
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-            className="w-full border rounded-md p-2"
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300"
-        >
-          Create Post
-        </button>
-      </form>
+    <div>
+      <Navbar />
+      <div className="max-w-md mx-auto mt-8">
+        <h2 className="text-xl font-semibold mb-4">Create a New Post</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="title" className="block font-medium">
+              Title
+            </label>
+            <input
+              type="text"
+              id="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="w-full border rounded-md p-2"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="body" className="block font-medium">
+              Body
+            </label>
+            <textarea
+              id="body"
+              value={body}
+              onChange={(e) => setBody(e.target.value)}
+              className="w-full border rounded-md p-2"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300"
+          >
+            Create Post
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

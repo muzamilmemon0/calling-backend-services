@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PostItem from "./PostItem";
+import Navbar from "./Navbar";
 
 function Posts() {
   const [posts, setPosts] = useState([]);
@@ -15,21 +16,24 @@ function Posts() {
 
   return (
     <div>
-      <select
-        value={postsLimit}
-        onChange={(e) => setPostsLimit(e.target.value)}
-        className="ml-4"
-      >
-        <option value={5}>05 Posts</option>
-        <option value={10}>10 Posts</option>
-        <option value={15}>15 Posts</option>
-      </select>
+      <Navbar />
       <div>
-        {posts.map((post) => (
-          <Link to={`/post/${post.id}`} key={post.id}>
-            <PostItem post={post} />
-          </Link>
-        ))}
+        <select
+          value={postsLimit}
+          onChange={(e) => setPostsLimit(e.target.value)}
+          className="ml-4 mt-4"
+        >
+          <option value={5}>05 Posts</option>
+          <option value={10}>10 Posts</option>
+          <option value={15}>15 Posts</option>
+        </select>
+        <div>
+          {posts.map((post) => (
+            <Link to={`/post/${post.id}`} key={post.id}>
+              <PostItem post={post} />
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
